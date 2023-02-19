@@ -1,102 +1,75 @@
 const express = require('express');
+const { matches } = require('lodash');
 
 // express app
 const app = express();
+const mongoose = require("mongoose")
+const Mats = require("./models/form")
 
-const morgan = require("morgan");
-
-const mongoose = require("mongoose");
-
-const Blog = require("./models/blog.js");
-
-
-// listen for requests
-
-//connect to mongodb
-dbURI = "mongodb+srv://treehacks23:test1234@cluster0.om4cibi.mongodb.net/Hospital_Posts?retryWrites=true&w=majority"
-mongoose.connect(dbURI, {useNewURLParser: true, useUnifiedTopology:true})
+const dbURI = "mongodb+srv://tree:var@cluster0.om4cibi.mongodb.net/Hosp?retryWrites=true&w=majority"
+mongoose.connect(dbURI)
   .then((result) => app.listen(3000))
   .catch((err) => console.log(err));
 
-
-//middleware and static files
-app.use(express.static('public'))
-app.use(morgan("dev"));
-
-
+// listen for requests
 
 // register view engine
 app.set('view engine', 'ejs');
-//app.set('views', 'myviews');
+
+app.use(express.static("public"));
+app.use(express.urlencoded());
+
+app.get('/hospital', (req, res) => {
+  res.render('hospital', { title: 'Hospital Home Page' });
+});
 
 app.get('/', (req, res) => {
-  res.render('login')
+  res.render('login', { title: 'Login' });
 });
 
-app.get('/about', (req, res) => {
-  res.render('about', { title: 'About' });
+app.get('/posts', (req, res) => {
+  res.render('post', {title: 'Make New Post' });
 });
 
-//blog routes
-// app.get('/blogs', (req, res) => {
-//   Blog.find().sort({ createdAt: -1})
-//     .then((result) => {
-//       res.render("index", {title: "All Blogs", blogs: result})
-//     })
-//     .catch((err) => {
-//       console.log(err)
-//     })
-// })
+app.get('/successform', (req, res) => {
+  res.render('successform', {title: 'Success Form' });
+});
 
-// app.get('/blogs/create', (req, res) => {
-//   res.render('create', { title: 'Create a new blog' });
-// });
+app.get('/ENM', (req, res) => {
+  res.render('ENM', {title: 'ENM' });
+});
+
+app.post("/mats", (req, res) => {
+  console.log(req.body);
+  req.body.Quantity_Demanded = parseInt(req.body.Quantity_Demanded);
+  var today = new Date();
+  const future = new Date(req.body.Date_by);
+  req.body.Date_by = Math.abs(future - today);;
+  req.body.Revenue = 250000000;
+  req.body.Occupancy = 100;
+  console.log(req.body);
+  const reqMat = new Mats(req.body);
+
+  reqMat.save()
+    .then((result) => { 
+      res.redirect('/successform');
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+
+ })
+
+ app.get('/supplierpage', (req, res) => {
+  res.render('supplierpage', {title: 'Supplier Page' });
+});
+
+app.get('/successpage', (req, res) => {
+  res.render('successpage', {title: 'Finished Shopping' });
+});
+
 
 // 404 page
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
 });
-
-
-// <script>
-//         function auth(){
-//             var username = document.getElementById("username").value;
-//             var password = document.getElementById("password").value;
-//             if(username=="Kaiser24" && password=="Treehacks"){
-//                 window.location.assign("/Users/britb/Desktop/Healthcare Website/hospital.html");
-//             }
-//             if(username== "Seller24" && password=="Treehacks"){
-//                 window.location.assign("/Users/britb/Desktop/Healthcare Website/seller.html")
-//             }
-//             else{
-//                 alert("Invalid. Please Try Again");
-//                 return;
-//             }
-//         }
-//     </script>
-
-//{* <html lang="en">
-// <%- include("./partials/head.ejs") %>
-
-// <body>
-//   <%- include("./partials/nav.ejs") %>
-
-//   <div class="blogs content">
-//     <h2>All Blogs</h2>
-
-//     <% if (blogs.length > 0) { %>
-//       <% blogs.forEach(blog => { %>
-
-//         <h3 class="title"><%= blog.title %></h3>
-//         <p class="snippet"><%= blog.snippet %></p>
-
-//       <% }) %>
-//     <% } else { %>
-//       <p>There are no blogs to display...</p>
-//     <% } %>
-    
-//   </div>
-
-//   <%- include("./partials/footer.ejs") %>
-// </body>
-//</html> */}

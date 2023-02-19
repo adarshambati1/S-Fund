@@ -1,0 +1,68 @@
+*{
+    font-family:'Sans Serif';
+}
+body {
+    font-family:'Sans Serif';
+    background-image: url(background_hospital_inventory.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+.container {
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    transform: translate(0%, 75%);
+
+}
+.main{
+    max-width: width;
+    margin: auto;
+    background-color: #0c0c37;
+    overflow: hidden;
+}
+  h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .button{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, 800%)
+  }
+.btn{
+    border: 1px solid #fff;
+    padding: 20px 50px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.6s ease;
+}
+.btn1{
+    border: 0px solid #000000;
+    padding: 10px 30px;
+    color: #000000;
+    text-decoration: none;
+    transition: 0.6s ease;
+}
+.btn1:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+.btn:hover{
+    background-color: #000000;
+    color: #ffffff;
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 20px;
+    border: 1px solid #fff;
+}

@@ -1,27 +1,29 @@
 <html>
-<%- include("./partials/head.ejs") %>
-
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>S Fund | <%= title %></title>
+		<link href="/style.css" rel="stylesheet" type="text/css">
+	</head>
 <body>
-    <%- include("./partials/nav.ejs") %>
     <h1>Welcome. Please Sign In.</h1>
     <div class="login">
-      <h2>All Blogs</h2>
-  
-      <% if (blogs.length > 0) { %>
-        <% blogs.forEach(blog => { %>
-  
-          <h3 class="title"><%= blog.title %></h3>
-          <p class="snippet"><%= blog.snippet %></p>
-  
-        <% }) %>
-      <% } else { %>
-        <p>There are no blogs to display...</p>
-      <% } %>
-      
+    <form id="login">
+        <label><b>USERNAME
+        </b></label>
+            <input type="text" name="USERNAME" id="USERNAME" placeholder="Username" placeholder="Seller24">
+        <br><br>
+        <label><b>PASSWORD
+        </b></label>
+            <input type="password" name="PASSWORD" id="PASSWORD" placeholder="Password">
+        <br><br>
+
+		<div class = "button">
+			<a href="/hospital" class="btn">Login</a>
+		</div>
+
+
+    </form>
     </div>
-  
-    <%- include("./partials/footer.ejs") %>
-  </body>
-
-
+</body>
 </html>

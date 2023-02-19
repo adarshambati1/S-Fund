@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Table</title>
+    <link rel="stylesheet" href="stylehospitaltable.css">
+    <script src="script.js"></script>
+</head>
+<body>
+  <header>
+    <input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search...">
+  </header>
+  <table id="Hospital Table">
+  <thead>
+    <tr>
+      <th>Supplier</th>
+      <th>Item</th>
+      <th>Quantity</th>
+      <th>Original Price</th>
+      <th>Discounted Price</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Seller A</td>
+      <td>Patient Beds</td>
+      <td>15000</td>
+      <td>36500</td>
+      <td>35981</th>
+      <td>Twin-Sized Hospital Beds with reclining capabilities</th>
+      <td>
+        <button onclick="window.location.href = '/supplierpage';" class="buy-button">Buy</button> 
+      </td>
+    </tr>
+    <tr>
+      <td>Seller B</td>
+      <td>Patient Beds</td>
+      <td>200000</td>
+      <td>197160</td>
+      <td>1500</th>
+      <td>Twin-Sized Hospital Beds with reclining capabilities</th>
+      <td>
+        <button onclick="window.location.href = '/supplierpage';" class="buy-button">Buy</button> 
+      </td>
+    </tr>
+    <tr> 
+      <td>Seller C</td>
+      <td>Patient Beds</td>
+      <td>200000</td>
+      <td>2000</td>
+      <td>1971</th>
+      <td>Twin-Sized Hospital Beds with reclining capabilities</th>
+      <td>
+        <button onclick="window.location.href = '/supplierpage';" class="buy-button">Buy</button> 
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button onclick="window.location.href = '/hospital';" class="home-button">Home</button>
+<button onclick="window.location.href = '/hospital';" class="cancel-button">Cancel</button>
+<style>
+  body {
+    background-color: rgb(255, 255, 255)
+  }
+</style>
+
+</body>
+</html>

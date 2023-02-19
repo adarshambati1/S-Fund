@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Webpage Design</title>
+    <link rel="stylesheet" href="stylesupplierpage.css">
+</head>
+<body>
+    <div class="main">
+            <div class="menu">
+                <ul>
+                    <li><a href="/hospital" class="btn1">HOME</a></li>
+                </ul>
+            </div>
+
+            <div class="container">
+                <h1>Payment Processing</h1>
+                <form>
+                  <label for="Name">Supplier Name:</label>
+                  <input type="text" id="name" name="name" required>
+              
+                  <label for="Payment Information">Equipment Needed:</label>
+                  <input type="text" id="Payment_Information" name="Payment_Information" required>
+              
+                  <label for="Amount of Items Requested">Amount of Equipment Available:</label>
+                  <input type="text" id="Amount_of_Items_Requested" name="equip" required>
+
+                  <label for="Original Price">Original Price:</label>
+                  <input type="number" id="origprice" name="origprice" required>
+
+                  <label for="Discounted_Price">Discounted Price:</label>
+                  <input type="number" id="discprice" name="discprice" required>
+
+                <a href="/successpage">
+                    <input onclick="window.location.href = '/successpage';" type="submit" value="Submit">
+                </a>
+                </form>
+              </div>
+            
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        background-color: rgb(195, 195, 227)
+    }
+</style>
+</html>

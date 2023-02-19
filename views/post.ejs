@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <title>S Fund | <%= title %></title>
+    <link rel="stylesheet" href="stylehospitalpage.css">
+</head>
+<body>
+    <div class="main">
+            <div class="menu">
+                <ul>
+                    <li><a href="/hospital" class="btn1">HOME</a></li>
+                </ul>
+            </div>
+
+            <div class="container">
+                <h1>Request Supplies</h1>
+                
+                <form action = "/mats" method = "POST">
+                  <label for="Hospital Name">Hospital Name:</label>
+                  <input type="text" id="name" name="Name" required>
+              
+                  <label for="Equipment Needed">Equipment Needed:</label>
+                  <input type="text" id="equipment" name="Item" required>
+              
+                  <label for="Quantity of Equipment Needed">Number of Equipment Needed:</label>
+                  <input type="text" id="quantity" name="Quantity_Demanded" required>
+
+                  <label for="Date by">Date Equipment is Needed By:</label>
+                  <input type="date" id="date" name="Date_by" required>
+
+                  <a>
+                    <input onclick="window.location.href = '/successform';" type="submit" value="Submit">
+                  </a>
+                </form>
+              </div>
+            
+        </div>
+    </div>
+</body>
+<style>
+    body {
+	     background-color: rgb(195, 195, 227)
+	  }
+</style>
+</html>
